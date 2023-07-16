@@ -48,7 +48,7 @@ android {
         applicationId "com.example.mapbox_project"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -69,4 +69,10 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    // implementation 'com.mapbox.maps:android:10.14.1'
+    // Link: https://github.com/mapbox/mapbox-maps-android/issues/1913
+    implementation "com.mapbox.mapboxsdk:mapbox-android-core:5.0.0" 
+    implementation('com.mapbox.mapboxsdk:mapbox-android-core:5.0.0') {
+            exclude group: 'com.mapbox.common', module: 'common'
+    }
 }
